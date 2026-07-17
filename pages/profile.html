@@ -3,19 +3,147 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="校園外送會員資料與最近訂單" />
     <title>校園外送｜會員中心</title>
     <link rel="stylesheet" href="../css/base.css" />
+    <link rel="stylesheet" href="../css/profile.css" />
   </head>
   <body>
     <header class="site-header">
       <a class="brand" href="../index.html">校園外送</a>
-      <nav aria-label="主要導覽"><a href="contact.html">聯絡我們</a><a href="order-status.html">訂單狀態</a><a href="../index.html">首頁</a></nav>
+      <nav aria-label="主要導覽">
+        <a href="contact.html">聯絡我們</a>
+        <a href="order-status.html">訂單狀態</a>
+        <a href="../index.html">首頁</a>
+      </nav>
     </header>
-    <main class="container">
-      <section class="page-heading"><p class="eyebrow">會員中心</p><h1>你好，王同學</h1><p class="muted">這裡提供使用者資料與客服聯絡資訊。</p></section>
-      <!-- 成員 6：完成會員資料區塊；聯絡資訊請在 contact.html 完成。 -->
-      <section class="placeholder"><h2>會員資料</h2><p>待完成：顯示姓名、常用地址與常用付款方式。</p></section>
+
+    <main class="container profile-page">
+      <section class="page-heading">
+        <p class="eyebrow">會員中心</p>
+        <h1>你好，王同學</h1>
+        <p class="muted">查看會員資料、累積訂單與最近一次訂餐紀錄。</p>
+      </section>
+
+      <div class="profile-layout">
+        <aside class="profile-summary profile-card">
+          <div class="avatar" role="img" aria-label="王小明的會員頭像">王</div>
+          <h2>王小明</h2>
+          <p class="student-label">國立校園大學・資訊管理系</p>
+          <span class="member-badge" aria-label="會員等級：黃金會員">★ 黃金會員</span>
+
+          <div class="summary-divider"></div>
+
+          <div class="join-date">
+            <span>加入日期</span>
+            <strong>2024 年 9 月</strong>
+          </div>
+
+          <a class="contact-button" href="contact.html">聯絡客服</a>
+        </aside>
+
+        <div class="profile-content">
+          <section class="stats-grid" aria-label="會員統計資料">
+            <article class="stat-card">
+              <span class="stat-icon pink" aria-hidden="true">訂</span>
+              <div>
+                <strong>28</strong>
+                <span>累積訂單數</span>
+              </div>
+            </article>
+            <article class="stat-card">
+              <span class="stat-icon orange" aria-hidden="true">★</span>
+              <div>
+                <strong>1,860</strong>
+                <span>會員點數</span>
+              </div>
+            </article>
+            <article class="stat-card">
+              <span class="stat-icon green" aria-hidden="true">券</span>
+              <div>
+                <strong>3</strong>
+                <span>可用優惠券</span>
+              </div>
+            </article>
+          </section>
+
+          <section class="profile-card info-section">
+            <div class="section-heading">
+              <div>
+                <p class="section-label">PROFILE</p>
+                <h2>會員資料</h2>
+              </div>
+              <span class="verified-badge">✓ 已驗證</span>
+            </div>
+
+            <dl class="info-grid">
+              <div>
+                <dt>會員姓名</dt>
+                <dd>王小明</dd>
+              </div>
+              <div>
+                <dt>電子郵件</dt>
+                <dd>wang.student@example.com</dd>
+              </div>
+              <div>
+                <dt>會員等級</dt>
+                <dd>黃金會員</dd>
+              </div>
+              <div>
+                <dt>累積訂單數</dt>
+                <dd>28 筆</dd>
+              </div>
+              <div class="wide-info">
+                <dt>常用地址</dt>
+                <dd>台北市大安區校園路 100 號・學生宿舍 A 棟</dd>
+              </div>
+              <div class="wide-info">
+                <dt>常用付款方式</dt>
+                <dd>貨到付款</dd>
+              </div>
+            </dl>
+          </section>
+
+          <section class="profile-card order-section">
+            <div class="section-heading">
+              <div>
+                <p class="section-label">RECENT ORDER</p>
+                <h2>最近訂單</h2>
+              </div>
+              <span class="status-badge">已送達</span>
+            </div>
+
+            <div class="restaurant-info">
+              <div class="restaurant-logo" aria-hidden="true">堡</div>
+              <div>
+                <h3>校門口美式漢堡</h3>
+                <p>訂單編號 #CAMPUS20260716028</p>
+              </div>
+              <strong class="order-price">NT$ 185</strong>
+            </div>
+
+            <dl class="order-details">
+              <div>
+                <dt>餐點內容</dt>
+                <dd>經典起司牛肉堡 × 1、薯條 × 1、紅茶 × 1</dd>
+              </div>
+              <div>
+                <dt>訂購時間</dt>
+                <dd>2026 / 07 / 16　18:42</dd>
+              </div>
+              <div>
+                <dt>送達地點</dt>
+                <dd>學生宿舍 A 棟大廳</dd>
+              </div>
+            </dl>
+
+            <a class="order-button" href="order-status.html">查看訂單狀態</a>
+          </section>
+        </div>
+      </div>
     </main>
-    <footer>校園外送小組協作練習</footer><script src="../js/app.js"></script>
+
+    <footer>校園外送小組協作練習</footer>
+    <script src="../js/app.js"></script>
   </body>
 </html>
