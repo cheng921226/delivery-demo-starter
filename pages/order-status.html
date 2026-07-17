@@ -1,6 +1,154 @@
 <!doctype html>
 <html lang="zh-Hant">
   <head>
+     <style>
+      /* 為確保介面美觀，加入進度條的專屬樣式 */
+      body {
+        font-family: 'Helvetica Neue', Arial, sans-serif;
+        background-color: #f7f9fc;
+        color: #333;
+        margin: 0;
+      }
+      .site-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 30px;
+        background: #fff;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      }
+      .brand {
+        font-size: 1.4rem;
+        font-weight: bold;
+        color: #ff6b6b;
+        text-decoration: none;
+      }
+      nav a {
+        margin-left: 20px;
+        color: #555;
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.2s;
+      }
+      nav a:hover {
+        color: #ff6b6b;
+      }
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 40px 20px;
+      }
+      .page-heading {
+        text-align: center;
+        margin-bottom: 50px;
+      }
+      .eyebrow {
+        color: #888;
+        font-size: 0.9rem;
+        letter-spacing: 2px;
+        margin-bottom: 5px;
+      }
+      .page-heading h1 {
+        font-size: 2.2rem;
+        margin: 0 0 10px 0;
+        color: #2c3e50;
+      }
+      .muted {
+        color: #7f8c8d;
+      }
+      
+      /* 訂單進度條專區 */
+      .progress-wrapper {
+        background: #fff;
+        padding: 40px 30px;
+        border-radius: 16px;
+        box-shadow: 0 8px 30px rgba(0,0,0,0.04);
+      }
+      .progress-wrapper h2 {
+        text-align: center;
+        margin-top: 0;
+        margin-bottom: 40px;
+        color: #2c3e50;
+      }
+      .progress-container {
+        display: flex;
+        justify-content: space-between;
+        position: relative;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+      /* 背景灰線 */
+      .progress-container::before {
+        content: '';
+        position: absolute;
+        top: 9px; /* 對齊圓點中心 */
+        left: 30px;
+        right: 30px;
+        height: 4px;
+        background: #e9ecef;
+        z-index: 1;
+        border-radius: 2px;
+      }
+      /* 綠色進度線 (假設進度到第三階段，寬度設為 50%) */
+      .progress-fill {
+        position: absolute;
+        top: 9px;
+        left: 30px;
+        height: 4px;
+        background: #2ecc71; 
+        z-index: 2;
+        width: 50%; 
+        border-radius: 2px;
+        transition: width 0.5s ease;
+      }
+      .progress-step {
+        position: relative;
+        z-index: 3;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 90px;
+      }
+      .step-dot {
+        width: 20px;
+        height: 20px;
+        background: #fff;
+        border: 4px solid #e9ecef;
+        border-radius: 150%;
+        margin-bottom: 12px;
+        transition: all 0.3s ease;
+      }
+      .step-label {
+        font-size: 0.85rem;
+        color: #a4b0be;
+        text-align: center;
+        font-weight: 600;
+      }
+      /* 已完成的狀態 */
+      .progress-step.completed .step-dot {
+        border-color: #2ecc71;
+        background: #2ecc71;
+      }
+      .progress-step.completed .step-label {
+        color: #2c3e50;
+      }
+      /* 目前正在進行的狀態 */
+      .progress-step.active .step-dot {
+        border-color: #2ecc71;
+        background: #fff;
+        box-shadow: 0 0 0 5px rgba(46, 204, 113, 0.2);
+      }
+      .progress-step.active .step-label {
+        color: #2ecc71;
+      }
+      
+      footer {
+        text-align: center;
+        padding: 500px;
+        color: #bdc3c7;
+        font-size: 0.9rem;
+      }
+    </style>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>校園外送｜訂單狀態</title>
@@ -14,7 +162,18 @@
     <main class="container">
       <section class="page-heading"><p class="eyebrow">外送進度</p><h1>訂單狀態</h1><p class="muted">使用模擬資料呈現目前的配送進度。</p></section>
       <!-- 成員 5：將此區塊改為至少三個訂單進度步驟。 -->
-      <section class="placeholder"><h2>目前進度</h2><p>待完成：顯示「店家接單」、「餐點製作中」、「外送途中」等狀態。</p></section>
+      <section class="placeholder"><h2>目前進度</h2><section class="placeholder">
+        <!-- 進度條開始 -->
+        <div class="progress-container">
+          <div class="progress-fill" style="width: 50%;"></div>
+          <div class="progress-step completed"><div class="step-dot"></div><div class="step-label">等待接單中</div></div>
+          <div class="progress-step completed"><div class="step-dot"></div><div class="step-label">店家已接單</div></div>
+          <div class="progress-step active"><div class="step-dot"></div><div class="step-label">餐點製作中</div></div>
+          <div class="progress-step"><div class="step-dot"></div><div class="step-label">外送在路上</div></div>
+          <div class="progress-step"><div class="step-dot"></div><div class="step-label">餐點已送達</div></div>
+        </div>
+        <!-- 進度條結束 -->
+      </section></section>
     </main>
     <footer>校園外送小組協作練習</footer><script src="../js/app.js"></script>
   </body>
